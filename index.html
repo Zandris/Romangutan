@@ -12,11 +12,11 @@
                 background-color: rgba(0, 68, 255, 0.295);
             }
             #canvas {
-                width: 1000px;
+                width: 1000px; 
                 height: 650px;
                 border: 2px solid #000000;
             }
-        </style>
+        </style> <!-- 0.76 paint 0.65 html -->
         
         <h1 style="text-align: center; color: rgb(238, 255, 0);">Lövöldözős Játék</h1>
 
@@ -28,8 +28,12 @@
             let x = 0;
             let y = 0;
             let vxpos = 0;
-            let vxneg = 0;
-            let vy = 0;
+            let vxneg = 1;
+            let vy = 1;
+
+            if (y < 0) {
+                console.log("FELTŰNŐMESZIDSZ");
+            }
 
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'a') {
@@ -38,6 +42,7 @@
                 }
             })
 
+
             document.addEventListener('keyup', (event) => {
                 if (event.key === 'a') {
                     console.log("a up");
@@ -45,12 +50,12 @@
                 }
             })
 
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'w') {
-                    console.log("w down");
-                    vy = -1;
-                }
-            })
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'w') {
+                        console.log("w down");
+                        vy = -1;
+                    }
+                })
 
             document.addEventListener('keyup', (event) => {
                 if (event.key === 'w') {
@@ -87,18 +92,27 @@
                 }
             })
 
-            const canvas = document.getElementById("canvas");
-            const ctx = canvas.getContext("2d");
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            function drawSquare() {
+                ctx.beginPath();
+                ctx.rect(x, y, 10, 7.6);
+                ctx.fillStyle = " #000000";
+                ctx.fill();
+                ctx.closePath();
+            }
 
             function update() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 x += vxpos;
                 x += vxneg;
                 y += vy;
-                ctx.fillRect(x, y, 10, 10);
+                drawSquare();
                 requestAnimationFrame(update);
             }
             update()
+            /* https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it */
         </script>
     </body>
 </html>
