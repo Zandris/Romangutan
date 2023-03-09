@@ -25,68 +25,15 @@
         </div>
 
         <script>
-            let x = 0;
-            let y = 280;
+            let x = 10;
+            let y = 75;
             let vxpos = 0;
             let vxneg = 0;
             let vy = 0;
 
-            /*
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'a') {
-                    console.log("a down");
-                    vxneg = -1;
-                }
-            })
-
-            document.addEventListener('keyup', (event) => {
-                if (event.key === 'a') {
-                    console.log("a up");
-                    vxneg = 0;
-                }
-            })
-
-                document.addEventListener('keydown', (event) => {
-                    if (event.key === 'w') {
-                        console.log("w down");
-                        vy = -1;
-                    }
-                })
-
-            document.addEventListener('keyup', (event) => {
-                if (event.key === 'w') {
-                    console.log("w up");
-                    vy = 0;
-                }
-            })
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 's') {
-                    console.log("s");
-                    vy = 1;
-                }
-            })
-
-            document.addEventListener('keyup', (event) => {
-                if (event.key === 's') {
-                    console.log("s up");
-                    vy = 0;
-                }
-            })
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'd') {
-                    console.log("d");
-                    vxpos = 1;
-                }
-            })
-
-            document.addEventListener('keyup', (event) => {
-                if (event.key === 'd') {
-                    console.log("d up");
-                    vxpos = 0;
-                }
-            }) */
+            let xbul = 0;
+            let ybul = 0;
+            let vxbul = 2;
 
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
@@ -94,9 +41,18 @@
             function drawSquare() {
                 ctx.beginPath();
                 ctx.rect(x, y, 10, 7.6);
-                ctx.fillStyle = " #000000";
+                ctx.fillStyle = "#000000";
                 ctx.fill();
                 ctx.closePath();
+            }
+
+            function drawBullet() {
+                ctx. beginPath();
+                ctx.rect(xbul, ybul, 5, 2);
+                ctx.fillStyle = "#000000";
+                ctx.fill();
+                ctx.closePath();
+                console.log("bullet");
             }
 
             function update() {
@@ -123,8 +79,11 @@
                 }
                 x += vxpos;
                 x += vxneg;
-                y += vy; 
+                y += vy;
+                xbul += vxbul;
                 drawSquare();
+                drawBullet();
+                
                 requestAnimationFrame(update);
             }
             update();
@@ -132,6 +91,7 @@
                 if (event.key === 'a') {
                     console.log("a down");
                     vxneg = -1;
+
                 }
             })
 
@@ -182,6 +142,14 @@
                 if (event.key === 'd') {
                     console.log("d up");
                     vxpos = 0;
+                }
+            })
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'f') {
+                    console.log("f down");
+                    xbul = x /*+ 15*/;
+                    ybul = y /*+ 3.8*/;
                 }
             })
             /* https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it */
