@@ -31,9 +31,14 @@
             let vxneg = 0;
             let vy = 0;
 
-            let xbul = 0;
-            let ybul = 0;
-            let vxbul = 2;
+            var bullet = { xbul: 0, ybul: 0, vxbul: 3.5, }; /* <-- array for each loop*/
+            /*class bullet { 
+                xbul = 0;
+                ybul = 0;
+                constructor(xbul, ybul) {
+                    
+                }
+            }*/
 
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
@@ -48,11 +53,11 @@
 
             function drawBullet() {
                 ctx. beginPath();
-                ctx.rect(xbul, ybul, 5, 2);
+                ctx.rect(bullet.xbul, bullet.ybul, 5, 2);
                 ctx.fillStyle = "#000000";
                 ctx.fill();
                 ctx.closePath();
-                console.log("bullet");
+                /*console.log("bullet");*/
             }
 
             function update() {
@@ -80,13 +85,14 @@
                 x += vxpos;
                 x += vxneg;
                 y += vy;
-                xbul += vxbul;
+                bullet.xbul += bullet.vxbul;
                 drawSquare();
                 drawBullet();
                 
                 requestAnimationFrame(update);
             }
             update();
+
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'a') {
                     console.log("a down");
@@ -148,8 +154,8 @@
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'f') {
                     console.log("f down");
-                    xbul = x + 15;
-                    ybul = y + 3;
+                    bullet.xbul = x + 15;
+                    bullet.ybul = y + 3;
                 }
             })
             /* https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Create_the_Canvas_and_draw_on_it */
