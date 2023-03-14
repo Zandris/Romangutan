@@ -1,1 +1,41 @@
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Játék</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1 style="text-align: center; color: rgb(238, 255, 0);">Lövöldözős Játék</h1>
+
+        <div style="text-align: center;">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <style>
+            body {
+                background-color: rgba(0, 68, 255, 0.295);
+            }
+            #canvas {
+                border: 2px solid #000000;
+            }
+        </style>
+
+        <script>
+            const canvas = document.getElementById("canvas");
+            const ctx = getContext("2d");
+
+            canvas.width = 1000;
+            canvas.height = 650;
+
+            function update() {
+                ctx.filStyle = rgba (0, 68, 255, 0.295);
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            setInterval(update, 1000 / 60);
+        </script>
+    </body>
+</html>
