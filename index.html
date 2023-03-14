@@ -17,7 +17,7 @@
 
         <style>
             body {
-                background-color: rgba(0, 68, 255, 0.295);
+                background-color: rgb(0, 68, 255);
             }
             #canvas {
                 border: 2px solid #000000;
@@ -26,14 +26,72 @@
 
         <script>
             var canvas = document.getElementById("canvas");
-            var ctx = getContext("2d");
+            var ctx = document.getElementById("canvas").getContext("2d");
 
             canvas.width = 1000;
             canvas.height = 650;
 
+            class Player {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.width = 50;
+                    this.height = 50;
+                    this.speed = 4;
+
+                    document.addEventListener("keydown", this.keydown);
+                    document.addEventListener("keyup", this.keyup);
+                }
+
+                drawPlayer(ctx) {
+                    this.move();
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+
+                move() {
+                    if(this.a) {
+                        this.x -= this.speed;
+                        console.log("x")
+                    }
+                }
+
+                keydown = (e) => {
+                    if (e.code === 'ArrowUp') {
+                        this.upPressed = true;
+                    }
+                    if (e.code === 'ArrowDown') {
+                        this.downPressed = true;
+                    }
+                    if (e.code === 'ArrowLeft') {
+                        this.leftPressed = true;
+                    }
+                    if (e.code === 'ArrowRight') {
+                        this.rightPressed = true;
+                    }
+                }
+
+                keyup = (e) => {
+                    if (e.code === 'ArrowUp') {
+                        this.a = false;
+                    }
+                    if (e.code === 'ArrowDown') {
+                        this.w = false;
+                    }
+                    if (e.code === 'ArrowLeft') {
+                        this.s = false;
+                    }
+                    if (e.code === 'ArrowRight') {
+                        this.d = false;
+                    }
+                }
+            }
+
+            const player = new Player(canvas.width / 10, canvas.height / 2);
+
             function update() {
-                ctx.filStyle = rgba (0, 68, 255, 0.295);
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx. clearRect(0, 0, canvas.width, canvas.height);
+                player.drawPlayer(ctx);
             }
             setInterval(update, 1000 / 60);
         </script>
