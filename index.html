@@ -40,9 +40,16 @@
                     
                 }
             }*/
+            class BulletController {
+                constructor (canvas) {
+                    this.canvas = canvas;
+                }
+                drawBullet();
+            }
 
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
+            const bulletController = new BulletController(canvas);
 
             function drawSquare() {
                 ctx.beginPath();
@@ -164,6 +171,7 @@
                     /*bullet.xbul = x + 15;
                     bullet.ybul = y + 3;*/
                     f = true;
+                    this.bulletController.drawBullet(xbul, ybul, vbul, dmg, dly);
                 }
             })
 
