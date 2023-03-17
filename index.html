@@ -28,6 +28,12 @@
             var canvas = document.getElementById("canvas");
             var ctx = document.getElementById("canvas").getContext("2d");
 
+            var a = false;
+            var w = false;
+            var s = false;
+            var d = false;
+            var f = false;
+
             canvas.width = 1000;
             canvas.height = 650;
 
@@ -38,9 +44,6 @@
                     this.width = 50;
                     this.height = 50;
                     this.speed = 4;
-
-                    document.addEventListener("keydown", this.keydown);
-                    document.addEventListener("keyup", this.keyup);
                 }
 
                 drawPlayer(ctx) {
@@ -55,43 +58,88 @@
                         console.log("x")
                     }
                 }
-
-                keydown = (e) => {
-                    if (e.code === 'ArrowUp') {
-                        this.upPressed = true;
-                    }
-                    if (e.code === 'ArrowDown') {
-                        this.downPressed = true;
-                    }
-                    if (e.code === 'ArrowLeft') {
-                        this.leftPressed = true;
-                    }
-                    if (e.code === 'ArrowRight') {
-                        this.rightPressed = true;
-                    }
-                }
-
-                keyup = (e) => {
-                    if (e.code === 'ArrowUp') {
-                        this.a = false;
-                    }
-                    if (e.code === 'ArrowDown') {
-                        this.w = false;
-                    }
-                    if (e.code === 'ArrowLeft') {
-                        this.s = false;
-                    }
-                    if (e.code === 'ArrowRight') {
-                        this.d = false;
-                    }
-                }
             }
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'a') {
+                    console.log("a down");
+                    a = true;
+                }
+            })
+
+
+            document.addEventListener('keyup', (event) => {
+                if (event.key === 'a') {
+                    console.log("a up");
+                    a = false;
+                }
+            })
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'w') {
+                    console.log("w down");
+                     w = true;
+                }
+            })
+
+            document.addEventListener('keyup', (event) => {
+                if (event.key === 'w') {
+                    console.log("w up");
+                    w = false;
+                }
+            })
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 's') {
+                    console.log("s down");
+                    s = true;
+                }
+            })
+
+            document.addEventListener('keyup', (event) => {
+                if (event.key === 's') {
+                    console.log("s up");
+                    s = false;
+                }
+            })
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'd') {
+                    console.log("d down");
+                    d = true;
+                }
+            })
+
+            document.addEventListener('keyup', (event) => {
+                if (event.key === 'd') {
+                    console.log("d up");
+                    d = false;
+                }
+            })
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'f') {
+                    console.log("f down");
+                    f = true;
+                }
+            })
+
+            document.addEventListener('keyup', (event) => {
+                if (event.key === 'f') {
+                    console.log("f down");
+                    f = false;
+                }
+            })
 
             const player = new Player(canvas.width / 10, canvas.height / 2);
 
             function update() {
                 ctx. clearRect(0, 0, canvas.width, canvas.height);
                 player.drawPlayer(ctx);
+
+                if (a == true) {
+                    console.log("move a")
+                }
             }
             setInterval(update, 1000 / 60);
         </script>
