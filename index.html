@@ -30,15 +30,16 @@
             let vxpos = 0;
             let vxneg = 0;
             let vy = 0;
+            let dmg = 2;
+            let vbul = 3.5
 
-            var bullet = { xbul: 0, ybul: 0, vxbul: 3.5, }; /* <-- array for each loop*/
-            /*class bullet { 
-                xbul = 0;
-                ybul = 0;
-                constructor(xbul, ybul) {
-                    
+            /*var bullet = { xbul: 0, ybul: 0, vxbul: 3.5, }; <-- array for each loop*/
+            class Bullet {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
                 }
-            }*/
+            }
 
             var canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
@@ -51,9 +52,9 @@
                 ctx.closePath();
             }
 
-            function drawBullet() {
+            function drawBullet(x, y) {
                 ctx. beginPath();
-                ctx.rect(bullet.xbul, bullet.ybul, 5, 2);
+                ctx.rect(x, y, 5, 2);
                 ctx.fillStyle = "#000000";
                 ctx.fill();
                 ctx.closePath();
@@ -87,7 +88,7 @@
                 y += vy;
                 bullet.xbul += bullet.vxbul;
                 drawSquare();
-                drawBullet();
+                drawBullet(bullet.xbul, bullet.ybul);
                 
                 requestAnimationFrame(update);
             }
@@ -97,7 +98,6 @@
                 if (event.key === 'a') {
                     console.log("a down");
                     vxneg = -1;
-
                 }
             })
 
