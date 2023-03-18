@@ -1,3 +1,7 @@
 vs-code
+ctrl + s
+ctrl + a, ctrl + v
+notepad++
+ctrl + a, ctrl + v
+run test.html
 commit
-https://htmlpreview.github.io/?https://github.com/Zandris/Romangutan/blob/03/13-branch/index.html
