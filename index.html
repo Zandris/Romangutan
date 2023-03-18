@@ -43,7 +43,7 @@
                     this.y = y;
                     this.width = 50;
                     this.height = 50;
-                    this.speed = 4;
+                    this.v = 5;
                 }
 
                 drawPlayer(ctx) {
@@ -53,16 +53,31 @@
                 }
 
                 move() {
-                    if(a == true) {
-                        this.x -= this.speed;
-                        console.log("x")
+                    if (a == true && this.x > 0) {
+                        this.x -= this.v;
+                        console.log("-x");
+                        console.log("x:", player.x);
+                    }
+                    if (d == true && this.x < canvas.width - this.width) {
+                        this.x += this.v;
+                        console.log("+x");
+                        console.log("x:", player.x);
+                    }
+                    if (w == true && this.y > 0) {
+                        this.y -= this.v;
+                        console.log("-y");
+                        console.log("y:", player.y);
+                    }
+                    if (s == true && this.y < canvas.height - this.height) {
+                        this.y += this.v;
+                        console.log("+y");
+                        console.log("y:", player.y);
                     }
                 }
             }
 
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'a') {
-                    console.log("a down");
                     a = true;
                 }
             })
@@ -70,63 +85,54 @@
 
             document.addEventListener('keyup', (event) => {
                 if (event.key === 'a') {
-                    console.log("a up");
                     a = false;
                 }
             })
 
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'w') {
-                    console.log("w down");
                      w = true;
                 }
             })
 
             document.addEventListener('keyup', (event) => {
                 if (event.key === 'w') {
-                    console.log("w up");
                     w = false;
                 }
             })
 
             document.addEventListener('keydown', (event) => {
                 if (event.key === 's') {
-                    console.log("s down");
                     s = true;
                 }
             })
 
             document.addEventListener('keyup', (event) => {
                 if (event.key === 's') {
-                    console.log("s up");
                     s = false;
                 }
             })
 
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'd') {
-                    console.log("d down");
                     d = true;
                 }
             })
 
             document.addEventListener('keyup', (event) => {
                 if (event.key === 'd') {
-                    console.log("d up");
                     d = false;
                 }
             })
 
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'f') {
-                    console.log("f down");
                     f = true;
                 }
             })
 
             document.addEventListener('keyup', (event) => {
                 if (event.key === 'f') {
-                    console.log("f down");
                     f = false;
                 }
             })
@@ -137,9 +143,6 @@
                 ctx. clearRect(0, 0, canvas.width, canvas.height);
                 player.drawPlayer(ctx);
 
-                if (a == true) {
-                    console.log("move a")
-                }
             }
             setInterval(update, 1000 / 60);
         </script>
