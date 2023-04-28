@@ -17,7 +17,7 @@ public class Enemy2BulletController : MonoBehaviour
 
     private void Start() 
     {
-        angle = 45;    
+        angle = 10;    
     }
 
     private void FixedUpdate()

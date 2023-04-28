@@ -7,12 +7,12 @@ public class Enemy2BulletDown : MonoBehaviour
     public float vEnemy1Bullet;
     private Rigidbody2D rb;
 
-    private float angle = 45;
+    private float angle = 10;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2 (- Mathf.Cos(angle) * vEnemy1Bullet,- Mathf.Sin(angle) * vEnemy1Bullet);
+        rb.velocity = new Vector2 (- Mathf.Cos(angle * Mathf.Deg2Rad) * vEnemy1Bullet,- Mathf.Sin(angle * Mathf.Deg2Rad) * vEnemy1Bullet);
     }
 
     void Update() 
