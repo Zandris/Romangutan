@@ -178,3 +178,5 @@ public class PlayerController : MonoBehaviour
 //https://www.youtube.com/watch?v=KE9BHGgVP4A
 //https://forum.unity.com/threads/converting-float-to-integer.27511/
 //https://www.youtube.com/watch?v=9dYDBomQpBQ
+//http://plbm.com/?p=248
+//http://plbm.com/?p=221

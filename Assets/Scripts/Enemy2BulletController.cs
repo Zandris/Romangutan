@@ -13,11 +13,11 @@ public class Enemy2BulletController : MonoBehaviour
     public float Enemy1AbsDelay = 1;
     private float relDelay = 0;
     public float Enemy1Damage = 1;
-    private float angle;
+    public float angle;
 
     private void Start() 
     {
-        angle = 10;    
+        //angle = 10;    
     }
 
     private void FixedUpdate()
