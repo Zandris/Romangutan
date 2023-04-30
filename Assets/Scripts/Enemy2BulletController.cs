@@ -9,6 +9,7 @@ public class Enemy2BulletController : MonoBehaviour
     public GameObject bulletUpPrefab;
     public GameObject bulletDownPrefab;
     public Enemy2Controller enemy2Controller;
+    public VariableManager variableManager;
 
     public float Enemy1AbsDelay = 1;
     private float relDelay = 0;
@@ -17,11 +18,16 @@ public class Enemy2BulletController : MonoBehaviour
 
     private void Start() 
     {
+        variableManager = GameObject.Find("VariableManager").GetComponent<VariableManager>();
+        angle = variableManager.Enemy2Angle;
         //angle = 10;    
     }
 
     private void FixedUpdate()
     {
+        //finomhangoláshoz töröld ki a //-eket a következő kommentből de ne feljtsd el visszatenni a //-eket
+        //angle = variableManager.Enemy2Angle;
+
         if (enemy2Controller.phase1 == false) {
             if (relDelay <= 0) {
                 Instantiate(bulletPrefab, bulletSpawnpoint.position, transform.rotation);

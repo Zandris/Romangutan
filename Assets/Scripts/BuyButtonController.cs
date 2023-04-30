@@ -7,28 +7,36 @@ public class BuyButtonController : MonoBehaviour
     public UpgradeMenuManager upgradeMenuManager;
     public PlayerController playerController;
     public HealthBar healthBar;
+    public ShieldBar shieldBar;
+    public VariableManager variableManager;
 
+    private bool ShieldUpgrade;
     private bool HealthUpgrade;
     private int upgradePoints;
 
-    private void Update() 
+    private void Start() 
     {
-        HealthUpgrade = upgradeMenuManager.HealthUpgrade;
-        upgradePoints = playerController.upgradePoints;
+        variableManager = GameObject.Find("VariableManager").GetComponent<VariableManager>();
     }
 
     public void BuyButton () 
     {
-
+        upgradePoints = playerController.upgradePoints;
         //Debug.Log("buybutton");
-        //Debug.Log(HealthUpgrade + " " + upgradePoints);
+        //Debug.Log("HealthUpgrade: " + variableManager.HealthUpgrade + " " + "ShieldUpgrade: " + variableManager.ShieldUpgrade);
 
-        if (HealthUpgrade == true && upgradePoints > 0) {
+        if (variableManager.HealthUpgrade == true && upgradePoints > 0) {
             playerController.maxHealth += 1000;
             healthBar.SetMaxHealth(playerController.maxHealth);
             playerController.upgradePoints -= 1;
             Time.timeScale = 0f;
-            //Debug.Log("healthupgrade");
+            //Debug.Log("BuyButton(): HealthUpgrade");
+        } else if (variableManager.ShieldUpgrade == true && upgradePoints >= 2) {
+            playerController.maxShield += 1000;
+            shieldBar.SetMaxShield(playerController.maxShield);
+            playerController.upgradePoints -= 2;
+            Time.timeScale = 0f;
+            //Debug.Log("BuyButton(): ShieldUpgrade");
         }
     }
 }

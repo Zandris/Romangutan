@@ -9,12 +9,11 @@ public class UpgradeButton : MonoBehaviour
     
     public void Start() 
     {
-        upgradesMenu.SetActive(false);
+        //upgradesMenu.SetActive(false);
     }
     
     public void upgradesButton () 
     {
-
         if (gameObject.tag == "UpgradesButton") {
             upgradesMenu.SetActive(true);
             Time.timeScale = 0f;

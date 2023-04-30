@@ -292,7 +292,7 @@ RectTransform:
   m_Children:
   - {fileID: 344509597}
   m_Father: {fileID: 481098197}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -765,6 +765,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251626726}
   m_CullTransparentMesh: 1
+--- !u!1 &259517694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259517695}
+  m_Layer: 0
+  m_Name: Boss Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &259517695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259517694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 481098197}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344509596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,10 +1286,9 @@ MonoBehaviour:
   healthBar: {fileID: 425619638}
   shieldBar: {fileID: 1863807050}
   playerController: {fileID: 1289221887}
+  variableManager: {fileID: 0}
   ItemInformation: {fileID: 1746103722}
   Price: {fileID: 1867719452}
-  HealthUpgrade: 0
-  ShieldUpgrade: 0
 --- !u!1 &425393499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1921,7 @@ RectTransform:
   - {fileID: 223365620}
   - {fileID: 425619636}
   - {fileID: 1863807047}
+  - {fileID: 259517695}
   - {fileID: 137276947}
   - {fileID: 540404476}
   - {fileID: 1807754001}
@@ -1948,7 +1979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &540404476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1968,7 +1999,7 @@ RectTransform:
   - {fileID: 2057688493}
   - {fileID: 1690199301}
   m_Father: {fileID: 481098197}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2247,6 +2278,8 @@ MonoBehaviour:
   upgradeMenuManager: {fileID: 370529284}
   playerController: {fileID: 1289221887}
   healthBar: {fileID: 425619638}
+  shieldBar: {fileID: 1863807050}
+  variableManager: {fileID: 0}
 --- !u!1 &1002295299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2356,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002295299}
   m_CullTransparentMesh: 1
+--- !u!1 &1033434061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033434063}
+  - component: {fileID: 1033434062}
+  m_Layer: 0
+  m_Name: VariableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1033434062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033434061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2813aa4b22181de4d8b28013f5df5828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy2Angle: 10
+  ShieldUpgrade: 0
+  HealthUpgrade: 0
+--- !u!4 &1033434063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033434061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042835415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,10 +3313,9 @@ MonoBehaviour:
   healthBar: {fileID: 425619638}
   shieldBar: {fileID: 1863807050}
   playerController: {fileID: 1289221887}
+  variableManager: {fileID: 0}
   ItemInformation: {fileID: 1746103722}
   Price: {fileID: 1867719452}
-  HealthUpgrade: 0
-  ShieldUpgrade: 0
 --- !u!114 &1492420538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3958,7 +4037,7 @@ RectTransform:
   - {fileID: 425393500}
   - {fileID: 352581724}
   m_Father: {fileID: 481098197}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

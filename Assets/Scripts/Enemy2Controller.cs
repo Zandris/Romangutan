@@ -15,7 +15,7 @@ public class Enemy2Controller : MonoBehaviour
 
     public float health = 5;
 
-    public bool phase1 = true;
+    public bool phase1 = true; 
 
     private void Start() 
     {
@@ -28,9 +28,10 @@ public class Enemy2Controller : MonoBehaviour
 
     private void Update()
     {
-        if (rb.transform.position.x > 8 && phase1 == true) {
+
+        if (rb.transform.position.x > 8 && phase1 == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 1) {
             rb.velocity = new Vector2 (- vEnemy2, 0);
-        } else if (phase1 == true)
+        } else if (phase1 == true && GameObject.FindGameObjectsWithTag("Enemy").Length == 1)
         {
             rb.velocity = new Vector2 (0, 0);
             phase1 = false;
