@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 175cf0c59f7dc4c4b8ad4f3a79a219c8, type: 3}
-  m_Color: {r: 1, g: 0.510552, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ed5dc6bdb2cbc3b40a560236489e9772, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.18, y: 1.42}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   bulletUpPrefab: {fileID: 236519974423039549, guid: 985bfa223af1d1c4ebb25db2a022908e, type: 3}
   bulletDownPrefab: {fileID: 236519974423039549, guid: 7fd365557b1a75f4eba43f75e98fc413, type: 3}
   enemy2Controller: {fileID: 4234993096672291680}
+  variableManager: {fileID: 0}
   Enemy1AbsDelay: 10
   Enemy1Damage: 1
   angle: 10

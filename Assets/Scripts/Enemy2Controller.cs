@@ -36,6 +36,12 @@ public class Enemy2Controller : MonoBehaviour
             rb.velocity = new Vector2 (0, 0);
             phase1 = false;
         }
+        if (rb.velocity.y > 30) {
+            Debug.Log(rb.velocity);
+            //Destroy(gameObject);
+            rb.transform.position = new Vector2 (8, playerController.rb.transform.position.y);
+            enemySpawner.SetActive(true);
+        }
     }
 
     private void FixedUpdate() 
