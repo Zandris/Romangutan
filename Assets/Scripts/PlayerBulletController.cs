@@ -26,10 +26,6 @@ public class PlayerBulletController : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space)) {
-            //F = true;
-            //Instantiate(bulletPrefab, bulletSpawnpoint.position, transform.rotation);
-        //}
         if (Input.GetKeyDown(KeyCode.Space)) {
             Space = true;
         }

@@ -9,6 +9,7 @@ public class BuyButtonController : MonoBehaviour
     public HealthBar healthBar;
     public ShieldBar shieldBar;
     public VariableManager variableManager;
+    public PlayerBulletController playerBulletController;
 
     private bool ShieldUpgrade;
     private bool HealthUpgrade;
@@ -22,6 +23,7 @@ public class BuyButtonController : MonoBehaviour
     public void BuyButton () 
     {
         upgradePoints = playerController.upgradePoints;
+
         //Debug.Log("buybutton");
         //Debug.Log("HealthUpgrade: " + variableManager.HealthUpgrade + " " + "ShieldUpgrade: " + variableManager.ShieldUpgrade);
 
@@ -37,6 +39,11 @@ public class BuyButtonController : MonoBehaviour
             playerController.upgradePoints -= 2;
             Time.timeScale = 0f;
             //Debug.Log("BuyButton(): ShieldUpgrade");
+        } else if (variableManager.FirePowerUpgrade == true && upgradePoints >= 3) {
+            playerBulletController.absDelay -= 2.5f;
+            playerController.upgradePoints -= 3;
+            Time.timeScale = 0f;
+            //Debug.Log("BuyButton(): FirePowerUpgrade");
         }
     }
 }

@@ -7,4 +7,5 @@ public class VariableManager : MonoBehaviour
     public float Enemy2Angle;
     public bool ShieldUpgrade;
     public bool HealthUpgrade;
+    public bool FirePowerUpgrade;
 }

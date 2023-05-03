@@ -19,6 +19,7 @@ TagManager:
   - QuitButton
   - NewGameButton
   - ShieldUpgrade
+  - FirePowerUpgrade
   layers:
   - Default
   - TransparentFX

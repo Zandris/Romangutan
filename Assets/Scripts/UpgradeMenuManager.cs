@@ -25,24 +25,36 @@ public class UpgradeMenuManager : MonoBehaviour
     public void ButtonManager () 
         {
             if (gameObject.tag == "HealthUpgrade") {
-                //playerController.maxHealth += 1000;
-                //healthBar.SetMaxHealth(playerController.maxHealth);
                 variableManager.HealthUpgrade = true;
-                //Debug.Log(HealthUpgrade);
-                //minden más false
-                variableManager.ShieldUpgrade = false;
 
-                ItemInformation.text = "Leírás: Az életerő növelése tízzel";
+                //minden más false
+
+                variableManager.ShieldUpgrade = false;
+                variableManager.FirePowerUpgrade = false;
+
+                ItemInformation.text = "Leírás: Az életerő növelése 10-el";
                 Price.text = "Ár: 1";
             }
 
             if (gameObject.tag == "ShieldUpgrade") {
                 variableManager.ShieldUpgrade = true;
 
-                ItemInformation.text = "Leírás: A pajzs növelése tízzel";
+                ItemInformation.text = "Leírás: A pajzs növelése 10-el";
                 Price.text = "Ár: 2";
 
                 variableManager.HealthUpgrade = false;
+                variableManager.FirePowerUpgrade = false;
+            }
+
+            if (gameObject.tag == "FirePowerUpgrade") {
+                variableManager.FirePowerUpgrade = true;
+
+                ItemInformation.text = "Leírás: A tűzerő növelése 2.5-el";
+                Price.text = "Ár: 3";
+
+                variableManager.ShieldUpgrade = false;
+                variableManager.HealthUpgrade = false;
+                //max 3at lehessen vagy 4 et
             }
         }
 }
