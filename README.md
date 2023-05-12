@@ -10,4 +10,6 @@ Használati utasítások:
 2. Csomagold ki a mappát.
 3. A játék mappában az "Infó Játék.exe" fájlt indítsd el.
 
-https://unityatscale.com/unity-version-control-guide/how-to-setup-unity-project-on-github/#step-7---staging-files-for-commit
+Súgó:
+- 'w' 'a' 's' 'd' gombokkal mozgás
+- 'space' gombbal lövés
