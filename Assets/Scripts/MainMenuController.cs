@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     public GameObject Credits;
+    public GameObject Tutorial;
 
     public void Start() 
     {
@@ -28,6 +29,10 @@ public class MainMenuController : MonoBehaviour
 
         if (gameObject.tag == "QuitButton") {
             Application.Quit();
+        }
+
+        if (gameObject.tag == "TutorialButton") {
+            Tutorial.SetActive(true);
         }
     }
 }

@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (Time.realtimeSinceStartup - lastTime > 30 && Time.timeSinceLevelLoad > 5) {
+        if (Time.realtimeSinceStartup - lastTime > 50 && Time.timeSinceLevelLoad > 5) {
             Instantiate(enemy2Prefab, spawnPoint, transform.rotation);
             lastTime = Time.realtimeSinceStartup;
         } else if (relTime <= 0) {
